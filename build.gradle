@@ -9,9 +9,18 @@ sourceCompatibility = 1.8
 
 repositories {
     mavenCentral()
+
+    maven {
+        url 'http://lutece.paris.fr/nexus/content/repositories/lutece_third_party'
+    }
+
+    maven {
+        url 'https://github.com/DV8FromTheWorld/Maven-Repository/raw/master/repo'
+    }
 }
 
 dependencies {
+    compile 'net.dv8tion:JDA:1.2.2_139'
 }
 
 mainClassName = 'com.flaiker.bottimus.Main'
