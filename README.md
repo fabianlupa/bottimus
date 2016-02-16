@@ -1,0 +1,2 @@
+# bottimus
+Discord music bot
