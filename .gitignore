@@ -11,3 +11,5 @@ build/
 *.war
 *.ear
 hs_err_pid*
+
+tokens.json
