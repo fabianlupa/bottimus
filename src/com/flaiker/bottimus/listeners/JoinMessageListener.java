@@ -1,6 +1,6 @@
 package com.flaiker.bottimus.listeners;
 
-import com.flaiker.bottimus.Configuration;
+import com.flaiker.bottimus.configuration.Configuration;
 import com.flaiker.bottimus.tools.ResourcePlayer;
 import net.dv8tion.jda.MessageBuilder;
 import net.dv8tion.jda.audio.player.Player;
