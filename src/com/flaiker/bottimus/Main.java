@@ -2,6 +2,7 @@ package com.flaiker.bottimus;
 
 import com.flaiker.bottimus.configuration.Configuration;
 import com.flaiker.bottimus.configuration.ConfigurationBuilder;
+import com.flaiker.bottimus.listeners.CommandListener;
 import com.flaiker.bottimus.listeners.JoinMessageListener;
 import net.dv8tion.jda.JDABuilder;
 
@@ -20,6 +21,7 @@ public class Main {
                     .setEmail(Configuration.EMAIL)
                     .setPassword(Configuration.PASSWORD)
                     .addListener(new JoinMessageListener())
+                    .addListener(new CommandListener())
                     .buildAsync();
         } catch (Exception e) {
             e.printStackTrace();
