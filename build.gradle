@@ -24,7 +24,16 @@ dependencies {
 }
 
 mainClassName = 'com.flaiker.bottimus.Main'
-sourceSets.main.java.srcDirs = [ "src/" ]
+sourceSets {
+    main {
+        java {
+            srcDir 'src'
+        }
+        resources {
+            srcDir 'res'
+        }
+    }
+}
 
 jar {
     from { configurations.compile.collect { it.isDirectory() ? it : zipTree(it) } }
