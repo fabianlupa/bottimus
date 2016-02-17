@@ -1,13 +1,17 @@
 package com.flaiker.bottimus.Listeners;
 
 import com.flaiker.bottimus.Configuration;
+import com.flaiker.bottimus.tools.ResourcePlayer;
 import net.dv8tion.jda.MessageBuilder;
+import net.dv8tion.jda.audio.player.Player;
 import net.dv8tion.jda.entities.TextChannel;
 import net.dv8tion.jda.entities.VoiceChannel;
 import net.dv8tion.jda.events.ReadyEvent;
 import net.dv8tion.jda.events.voice.VoiceJoinEvent;
 import net.dv8tion.jda.hooks.ListenerAdapter;
 
+import javax.sound.sampled.UnsupportedAudioFileException;
+import java.io.IOException;
 import java.util.Optional;
 
 /**
@@ -36,10 +40,23 @@ public class JoinMessageListener extends ListenerAdapter {
                 event.getJDA().getTextChannelsByName(Configuration.MAIN_CHANNEL).stream().findFirst();
 
         if (channel.isPresent()) {
-            channel.get().sendMessageAsync(mb.appendString(Configuration.GREETING).setTTS(true).build(),
+            channel.get().sendMessageAsync(mb.appendString(Configuration.GREETING).build(),
                     c -> System.out.println("Send greeting message to '" + Configuration.MAIN_CHANNEL + "'"));
         } else {
             System.out.println("Could not find channel '" + Configuration.MAIN_CHANNEL + "'");
+        }
+
+        try {
+            Player player = new ResourcePlayer(getClass().getResource("/hello.mp3"));
+            event.getJDA().getAudioManager().setSendingHandler(player);
+            Thread.sleep(2000);
+            player.play();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        } catch (IOException | IllegalArgumentException e) {
+            System.out.println("Could not read audio file");
+        } catch (UnsupportedAudioFileException e) {
+            System.out.println("Unsupported audio file");
         }
 
         super.onVoiceJoin(event);
