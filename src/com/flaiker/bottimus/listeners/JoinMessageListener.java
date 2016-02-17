@@ -1,4 +1,4 @@
-package com.flaiker.bottimus.Listeners;
+package com.flaiker.bottimus.listeners;
 
 import com.flaiker.bottimus.Configuration;
 import com.flaiker.bottimus.tools.ResourcePlayer;

@@ -1,6 +1,6 @@
 package com.flaiker.bottimus;
 
-import com.flaiker.bottimus.Listeners.JoinMessageListener;
+import com.flaiker.bottimus.listeners.JoinMessageListener;
 import net.dv8tion.jda.JDABuilder;
 
 import javax.security.auth.login.LoginException;
