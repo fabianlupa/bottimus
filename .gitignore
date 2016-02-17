@@ -13,3 +13,4 @@ build/
 hs_err_pid*
 
 tokens.json
+config.properties

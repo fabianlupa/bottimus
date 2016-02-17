@@ -21,6 +21,7 @@ repositories {
 
 dependencies {
     compile 'net.dv8tion:JDA:1.2.2_139'
+    compile 'org.reflections:reflections:0.9.9'
 }
 
 mainClassName = 'com.flaiker.bottimus.Main'
