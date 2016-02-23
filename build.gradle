@@ -22,6 +22,9 @@ repositories {
 dependencies {
     compile 'net.dv8tion:JDA:1.2.2_139'
     compile 'org.reflections:reflections:0.9.9'
+    compile 'org.slf4j:slf4j-api:1.7.5'
+    compile 'org.slf4j:slf4j-simple:1.6.4'
+    compile 'uk.co.caprica:vlcj:3.8.0'
 }
 
 mainClassName = 'com.flaiker.bottimus.Main'
