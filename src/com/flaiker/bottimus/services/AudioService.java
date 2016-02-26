@@ -161,4 +161,8 @@ public class AudioService {
             }
         }));
     }
+
+    public String getPlaylistStatus() {
+        return playlist.getStatus();
+    }
 }
