@@ -22,7 +22,9 @@ public class LogFormatter extends Formatter {
                 .append(new SimpleDateFormat("yyyy-MM-dd HH:mm:ss.SSS").format(new Date(record.getMillis())))
                 .append(" ")
                 .append(record.getLevel().getName())
-                .append(": ")
+                .append(" (")
+                .append(Thread.currentThread().getName())
+                .append("): ")
                 .append(formatMessage(record))
                 .append(LINE_SEPARATOR)
                 .append(thrown.map(t -> {

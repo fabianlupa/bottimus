@@ -11,6 +11,7 @@ import java.io.IOException;
 import java.lang.reflect.Field;
 import java.util.Properties;
 import java.util.Set;
+import java.util.logging.Logger;
 
 /**
  * Builds the {@link Configuration}-file.
@@ -19,6 +20,7 @@ import java.util.Set;
  * are not set. Writes the config file back immediately after load.
  */
 public class ConfigurationBuilder {
+    private static final Logger LOG = Logger.getLogger(Configuration.class.getName());
     private final File configFile;
     private final Properties properties;
 
@@ -60,7 +62,7 @@ public class ConfigurationBuilder {
                     properties.setProperty(option.value(), (String) value);
                 }
             } catch (IllegalAccessException e) {
-                System.out.println("Could not load configuration, IllegalAccessException");
+                LOG.severe("Could not load configuration, IllegalAccessException");
                 System.exit(-1);
             }
         });

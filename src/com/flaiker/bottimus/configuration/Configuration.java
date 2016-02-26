@@ -19,4 +19,6 @@ public class Configuration {
     public static String PASSWORD = "password!";
     @Option("greeting")
     public static String GREETING = "Guten Tag";
+    @Option("temp_file")
+    public static String TEMP_FILE = "tmp.mp3";
 }
