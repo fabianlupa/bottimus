@@ -142,6 +142,25 @@ public class Playlist {
         if (trackChangedListener != null) trackChangedListener.run();
     }
 
+    public String getStatus() {
+        StringBuilder sb = new StringBuilder();
+
+        sb.append("**Current playlist status**\n");
+        sb.append(tracks.size()).append(" tracks in the playlist\n");
+        sb.append("Current track: ").append(current.map(t -> t.url.replaceFirst("https?://", "")).orElse("none"))
+                .append("\n");
+        sb.append("Tracklist:\n```\n");
+        for (int i = 0; i < tracks.size(); i++) {
+            Track track = tracks.get(i);
+            sb.append(i + 1).append(". ").append(track.url.replaceFirst("https?://", ""));
+            if (current.isPresent() && current.get() == track) sb.append(" <-- playing");
+            sb.append("\n");
+        }
+        sb.append("```\n");
+
+        return sb.toString();
+    }
+
     /**
      * An immutable track.
      */

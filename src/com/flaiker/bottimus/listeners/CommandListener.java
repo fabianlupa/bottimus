@@ -73,6 +73,9 @@ public class CommandListener extends ListenerAdapter {
                         LOG.warning("Could not parse '" + args[1] + "', valid modes are LOOPING and NORMAL");
                     }
                     break;
+                case "!status":
+                    event.getChannel().sendMessageAsync(audioService.getPlaylistStatus(), null);
+                    break;
                 default:
                     LOG.warning("Could not recognize command '" + command + "'");
             }
