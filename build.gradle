@@ -25,6 +25,7 @@ dependencies {
     compile 'org.slf4j:slf4j-api:1.7.5'
     compile 'org.slf4j:slf4j-simple:1.6.4'
     compile 'uk.co.caprica:vlcj:3.8.0'
+    compile 'com.google.apis:google-api-services-youtube:v3-rev162-1.21.0'
 }
 
 mainClassName = 'com.flaiker.bottimus.Main'
