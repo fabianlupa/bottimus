@@ -10,7 +10,7 @@ public class Configuration {
     @Option("main_channel")
     public static String MAIN_CHANNEL = "general";
     @Option("log_channel")
-    public static String LOG_CHANNEL = "botlog";
+    public static String LOG_CHANNEL = "";
     @Option("voice_channel")
     public static String VOICE_CHANNEL = "General";
     @Option("email")

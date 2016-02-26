@@ -61,8 +61,10 @@ public class Main {
                         .buildAsync();
 
             // Log to the specified log channel
-            ChannelLogHandler channelLogHandler = new ChannelLogHandler(jda, new LogFormatter());
-            Logger.getLogger("").addHandler(channelLogHandler);
+            if (!Configuration.LOG_CHANNEL.isEmpty()) {
+                ChannelLogHandler channelLogHandler = new ChannelLogHandler(jda, new LogFormatter());
+                Logger.getLogger("").addHandler(channelLogHandler);
+            }
         } catch (Exception e) {
             LOG.log(Level.SEVERE, "An unexpected error occurred", e);
         }
