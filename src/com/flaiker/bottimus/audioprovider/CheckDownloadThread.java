@@ -49,6 +49,7 @@ public class CheckDownloadThread extends Thread {
                 elapsedTime += WAIT_INTERVAL;
             } catch (InterruptedException e) {
                 LOG.info("Download check thread got interrupted (possibly by new download)");
+                break;
             }
         }
     }
