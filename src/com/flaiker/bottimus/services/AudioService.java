@@ -69,9 +69,9 @@ public class AudioService {
             } else {
                 LOG.warning("Could not find voice channel '" + Configuration.VOICE_CHANNEL + "'");
             }
-        }
 
-        initialized = true;
+            initialized = true;
+        }
     }
 
     /**

@@ -29,11 +29,13 @@ public class CommandListener extends ListenerAdapter {
     public void onGuildMessageReceived(GuildMessageReceivedEvent event) {
         // Check if message was received on correct channel
         if (event.getChannel().getName().equals(Configuration.MAIN_CHANNEL)) {
-            audioService.init(event.getJDA());
             String message = event.getMessage().getContent();
 
             // Check if message is valid / targeted at bottimus
             if (!message.startsWith("!") || message.split(" ").length == 0) return;
+
+            // Initialize the audio service
+            audioService.init(event.getJDA());
 
             // Parse and process the command
             String[] args = message.split(" ");
