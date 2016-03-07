@@ -31,3 +31,6 @@ VLC-player can play as it uses exactly that.
 | [JDA](https://github.com/DV8FromTheWorld/JDA)  | 1.2.2_139 |
 | [reflections.org](https://github.com/ronmamo/reflections) | 0.9.9 |
 | [VLCJ](https://github.com/caprica/vlcj) | 3.8.0 |
+
+### License
+This project is licensed under GNU General Public License v3.0. See LICENSE file for details.
