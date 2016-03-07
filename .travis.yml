@@ -22,4 +22,3 @@ deploy:
     tags: true
     repo: flaiker/bottimus
     branch: master
-    condition: $TRAVIS_TAG =~ ^v\d+\.\d+\.\d+.*$ # Only deploy tags that match something like v1.0.0
