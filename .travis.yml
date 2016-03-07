@@ -1,0 +1,25 @@
+language: java
+jdk: oraclejdk8
+
+# Setup environment
+before_install:
+- chmod +x gradlew
+
+# Default gradle task will be run automatically on build, no need to define it
+
+# Deployment to GitHub-releases
+before_deploy:
+  # Generate a packaged jar and rename it to include the tag
+- ./gradlew assemble
+- mv build/libs/bottimus-1.0-SNAPSHOT.jar build/libs/bottimus-$TRAVIS_TAG.jar
+
+deploy:
+  provider: releases
+  api_key:
+    secure: A37MLCDIhQZ+sjTV356L3AVNz7Raq6Qd/UX6xc8IuadmYs0HwL9IHZKSKUbvcKfbXTvVi60J4pwLww/nF9vWPTG66dVoPSDtg/OmYQ1o9afgGzj9xWonAYNblfaYxsOWoD+0q+iBTOgDvmy9byyhmp1KRTbGCDFYpLCg4uuqHeqvPRrBxyvRBVKwrtsTsduHhYQtwXlv3BqzhAhhtMcVQ1aMsx8KA60bBB5aOLEGeLIvcvrJXOOS3PbrD/SbA1G5F82daTnZdxI+tc55eLUxftMC2H1F0+VqsWps3EPyPD9B0ev+tc+LO1LI5EOSN8RGVTdkgK27IoHQs5+tU/y2ggEjI57HsRPC0EvHxzTAAUMvRZF39K8LGM5QZpAXlLjv0a+qtQ/BeFE80iH1V92eHsR4HL8oZakOS1Y0nSnLpXA5mqtiJVtMXR0hSu6JHQ4E2yr9T+AEO5HyxojuRMXbkfUTWPtLY+yS43S2ZM9cc7bdp9vqiOjTJ98kSBLIfMkQo0AsbWd/CtIkWRPe/pf/mIYOA6IiHT7cJOzDc3kMcW2YIF/Jk10dd4VMrx5tUbO3wdN6wjzFe2tB8eWpa3DHaPGWbtkkmFdkkHboUZDLYGxLp6cEeMs6yekoARZdUv5vY7ESK40Gm0coyqO2CgcqgMwpYiiQ5MGm7+JPPXSmtq0=
+  file: build/libs/{PROJECT_NAME}-$TRAVIS_TAG.jar
+  on:
+    tags: true
+    repo: {GITHUB_USER}/{PROJECT_NAME}
+    branch: master
+    condition: "$TRAVIS_TAG =~ ^v\d+\.\d+\.\d+.*$" # Only deploy tags that match something like v1.0.0
